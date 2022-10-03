@@ -12,7 +12,6 @@ import {StyleSheet, TextInput} from 'react-native'
 const styles = StyleSheet.create({
     input:{
         borderBottomWidth:1,
-        width:240,
         marginVertical:5
      },
 

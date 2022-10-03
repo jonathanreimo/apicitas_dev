@@ -69,21 +69,24 @@ const addOrUpdate = () => {
 
 return (
    <View style={styles.container}>
-      <View style={{flex:0.1, marginTop:20,marginBottom:25 }} >
+      <View style={{flex:0.7, marginTop:20,marginBottom:0 }} >
          <Text style={{fontWeight:'bold',color:'#0E69E5', fontSize:20}}>
              APP
           </Text>
-      </View> 
-      <Input texto={"Nombre"} valor={nombre} campo={e=>setNombre(e)}/>
-      <Input texto={"Edicion"} valor={edicion} campo={e=>setEdicion(e)}/>
-      <TouchableOpacity 
+      </View>
+      <View style={{ flex:1.5 }}>
+         <Input texto={"Nombre"} valor={nombre} campo={e=>setNombre(e)}/>
+         <Input texto={"Email"} valor={edicion} campo={e=>setEdicion(e)}/>
+      
+         <TouchableOpacity 
             style={{backgroundColor:'#0E69E5', padding:15,borderRadius:12}}
             onPress={addOrUpdate}  >
-          <Text style={{color:'#fff'}}>{bandera? "Editar":"Agregar"}</Text>
-      </TouchableOpacity>
+            <Text style={{color:'#fff'}}>{bandera? "Editar":"Agregar"}</Text>
+         </TouchableOpacity>
+      </View>
 
      <FlatList
-        style={{marginTop:15}}
+        style={{marginTop:20}}
         data={listaLibros}
         renderItem={renderItem}
         keyExtractor={item =>item.id} 
@@ -97,7 +100,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    justifyContent: 'space-evenly',
   },
 });
