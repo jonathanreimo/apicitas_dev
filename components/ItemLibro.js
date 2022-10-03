@@ -1,7 +1,7 @@
 import React from 'react'
 import {StyleSheet,Text, View, TouchableOpacity} from 'react-native'
 import { Ionicons } from '@expo/vector-icons';
-const ItemUsuario = (props) => (
+const ItemLibro = (props) => (
     <View style={styles.cardView}>
        <Text style={{textTransform: 'uppercase', fontWeight:'bold'}}>
              {props.nombre}
@@ -11,7 +11,7 @@ const ItemUsuario = (props) => (
        </Text> 
        <View style={{flexDirection:'row-reverse'}}>
        <TouchableOpacity  style={{marginHorizontal:10}}
-         onPress={props.getusuario.bind(this, props)} >
+         onPress={props.getlibro.bind(this, props)} >
          <Ionicons name="md-create" size={36} color="#07C71F" />
       </TouchableOpacity>
        <TouchableOpacity  
@@ -27,6 +27,7 @@ const styles = StyleSheet.create({
     cardView: {
         backgroundColor: "white",
         borderRadius: 20,
+        color:"#0E69E5",
         marginVertical:5,
         padding: 35,
         shadowColor: "#000",
@@ -41,4 +42,4 @@ const styles = StyleSheet.create({
 
 });
 
-  export default ItemUsuario;
+  export default ItemLibro;

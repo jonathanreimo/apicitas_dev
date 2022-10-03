@@ -2,12 +2,12 @@ import { Ionicons } from '@expo/vector-icons';
 import React from 'react';
 import { TouchableOpacity, StyleSheet, Text, View } from 'react-native';
 
- function Card({ nombre ,email }) {
+ function Card({ nombre ,edicion }) {
   
     return (
       <View style={styles.cardView}>
         <Text style={{fontSize:18}}>Nombre: {nombre}</Text>
-        <Text style={{fontSize:18}}>Edicion: {email}</Text>
+        <Text style={{fontSize:18}}>Edicion: {edicion}</Text>
       </View>
     );
   }
