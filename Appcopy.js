@@ -1,6 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import React, { useState, useEffect } from 'react';
-import { StyleSheet,FlatList ,View, Text,TouchableOpacity, Alert, Modal, Pressable} from 'react-native';
+import { StyleSheet,FlatList ,View, Text,TouchableOpacity} from 'react-native';
 import axios from 'axios' //npm i axios
 
 //componentes personalizados
@@ -62,17 +62,16 @@ const updateLibro = async() => {
 
 
 
-/*const addOrUpdate = () => {
+const addOrUpdate = () => {
  {bandera? updateLibro() : addLibro() }
-}*/
+}
 
  const renderItem = ({ item }) => (
     <ItemLibro id={item.id} getlibro={getLibro}
        nombre={item.nombre} edicion={item.edicion} mypress={deleteLibro}
     /> )
 
-
-    const [modalVisible, setModalVisible] = useState(false); 
+ 
 
 return (
    <View style={styles.container}>
@@ -81,51 +80,20 @@ return (
              App
           </Text>
       </View> 
+      <Input texto={"Nombre"} valor={nombre} campo={e=>setNombre(e)}/>
+      <Input texto={"Edicion"} valor={edicion} campo={e=>setEdicion(e)}/>
+      <TouchableOpacity 
+            style={{backgroundColor:'#0E69E5', padding:15,borderRadius:12}}
+            onPress={addOrUpdate}  >
+          <Text style={{color:'#fff'}}>{bandera? "Editar":"Agregar"}</Text>
+      </TouchableOpacity>
 
-      <Modal
-        animationType="slide"
-        transparent={true}
-        visible={modalVisible}
-        onRequestClose={() => {
-          Alert.alert("Modal has been closed.");
-          setModalVisible(!modalVisible);
-        }}
-      >
-        <View style={styles.centeredView}>
-          <View style={styles.modalView}>
-            <Text style={styles.modalText}>slots</Text>
-            <FlatList
+     <FlatList
         style={{marginTop:15}}
         data={listaLibros}
         renderItem={renderItem}
         keyExtractor={item =>item.id} 
       />
-            <Pressable
-              style={[styles.button, styles.buttonClose]}
-              onPress={() => setModalVisible(!modalVisible)}
-            >
-              <Text style={styles.textStyle}>Cerrar Modal</Text>
-            </Pressable>
-          </View>
-        </View>
-      </Modal>
-      <Pressable
-        style={[styles.button, styles.buttonOpen]}
-        onPress={() => setModalVisible(true)}
-      >
-        <Text style={styles.textStyle}>Abrir Modal</Text>
-      </Pressable>
-
-
-      <Input texto={"Nombre"} valor={nombre} campo={e=>setNombre(e)}/>
-      <Input texto={"Edicion"} valor={edicion} campo={e=>setEdicion(e)}/>
-      <TouchableOpacity 
-            style={{backgroundColor:'#0E69E5', padding:15,borderRadius:12}}
-            onPressIn={addLibro} onPress={() => setModalVisible(!modalVisible)} >
-          <Text style={{color:'#fff'}}>Siguiente</Text>
-      </TouchableOpacity>
-
-     
       <StatusBar style="auto" />
    </View>
   );
@@ -137,41 +105,4 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     justifyContent: 'space-evenly',
   },
-
-  modalView: {
-   margin: 20,
-   backgroundColor: "white",
-   borderRadius: 20,
-   padding: 35,
-   alignItems: "center",
-   shadowColor: "#000",
-   shadowOffset: {
-     width: 0,
-     height: 2
-   },
-   shadowOpacity: 0.25,
-   shadowRadius: 4,
-   elevation: 5
- },
- button: {
-   borderRadius: 20,
-   padding: 10,
-   elevation: 2
- },
- buttonOpen: {
-   backgroundColor: "#F194FF",
-   /*isplay: "none",*/
- },
- buttonClose: {
-   backgroundColor: "#2196F3",
- },
- textStyle: {
-   color: "white",
-   fontWeight: "bold",
-   textAlign: "center"
- },
- modalText: {
-   marginBottom: 15,
-   textAlign: "center"
- }
 });

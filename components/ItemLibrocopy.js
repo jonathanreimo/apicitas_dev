@@ -10,14 +10,13 @@ const ItemLibro = (props) => (
             {props.edicion}
        </Text> 
        <View style={{flexDirection:'row-reverse'}}>
-       <TouchableOpacity  style={{marginHorizontal:10, display: 'none'}}
+       <TouchableOpacity  style={{marginHorizontal:10}}
          onPress={props.getlibro.bind(this, props)} >
          <Ionicons name="md-create" size={36} color="#07C71F" />
       </TouchableOpacity>
        <TouchableOpacity  
-         onPress={props.mypress.bind(this, props)} style={{backgroundColor:'#0E69E5', padding:15,borderRadius:12}}>
-         <Ionicons style={{display: 'none'}} name="md-trash" size={36} color="#F1113D" />
-         <Text style={{color:'#fff'}}>Agendar</Text>
+         onPress={props.mypress.bind(this, props)} >
+         <Ionicons name="md-trash" size={36} color="#F1113D" />
       </TouchableOpacity>
       </View>
 
