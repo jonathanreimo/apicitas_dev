@@ -1,8 +1,8 @@
 import { StatusBar } from 'expo-status-bar';
 import React, { useState, useEffect } from 'react';
-import { StyleSheet,FlatList ,View, Text,TouchableOpacity, Alert, Modal, Pressable} from 'react-native';
+import { StyleSheet, FlatList, View, Text, TextInput, Button, TouchableOpacity, Alert, Modal, Pressable} from 'react-native';
 import axios from 'axios' //npm i axios
-
+import { StackNavigator } from 'react-navigation';
 //componentes personalizados
 import ItemLibro from './components/ItemLibro'
 import Input from './components/Input'
